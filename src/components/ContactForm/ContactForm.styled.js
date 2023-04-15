@@ -1,16 +1,21 @@
 import styled from 'styled-components';
 
-export const Section = styled.section`
+export const Form = styled.form`
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
+`;
+
+export const Label = styled.label`
+  margin-bottom: 10px;
+`;
+
+export const Input = styled.input`
+  width: 100%;
 `;
 
 export const Button = styled.button`
-  margin-top: 18px;
+margin-top: 18px;
   padding: 8px 14px;
-
   font-size: 16px;
   color: white;
   background: darkblue;
@@ -18,4 +23,5 @@ export const Button = styled.button`
   border-radius: 10px;
   border: none;
   text-align: center;
+  }
 `;
