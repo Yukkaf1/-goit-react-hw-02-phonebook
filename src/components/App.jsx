@@ -29,9 +29,9 @@ export class App extends Component {
     }));
   };
 
-  deleteContact = contactId => {
+  deleteContact = currId => {
     this.setState(prevState => ({
-      contacts: prevState.contacts.filter(contact => contact.id !== contactId),
+      contacts: prevState.contacts.filter(contact => contact.id !== currId),
     }));
   };
 
@@ -50,10 +50,7 @@ export class App extends Component {
 
   render() {
     const visibleContacts = this.getVisibleContacts();
-    const contacts = this.state.contacts;
-    {
-      console.log(contacts);
-    }
+    // const contactsList = this.state.contacts;
     return (
       <>
         <Section headTitle="Phonebook">
@@ -61,10 +58,19 @@ export class App extends Component {
         </Section>
         <Section title="Contacts">
           <Filter value={this.state.filter} onChange={this.handleChange} />
-          <ContactList
-            contacts={visibleContacts}
-            onDeleteContact={this.deleteContact}
-          />
+          {visibleContacts.map(({ id, name, number }) => (
+            <ul>
+              <li>
+                {' '}
+                <span>
+                  {name}: {number}
+                </span>
+                <button type="button" onClick={() => this.deleteContact(id)}>
+                  X
+                </button>
+              </li>
+            </ul>
+          ))}
         </Section>
       </>
     );
