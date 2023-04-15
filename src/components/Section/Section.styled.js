@@ -10,12 +10,14 @@ export const PageSection = styled.section`
 export const Title = styled.h2`
   display: flex;
   text-align: center;
+  margin-top: 20px;
   margin-bottom: 15px;
   font-size: 32px;
 `;
 
 export const HeadTitle = styled.h1`
   text-align: center;
+  margin-top: 20px;
   margin-bottom: 15px;
   font-size: 32px;
 `;

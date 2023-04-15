@@ -50,7 +50,7 @@ export class App extends Component {
 
   render() {
     const visibleContacts = this.getVisibleContacts();
-    // const contactsList = this.state.contacts;
+
     return (
       <>
         <Section headTitle="Phonebook">
@@ -58,19 +58,11 @@ export class App extends Component {
         </Section>
         <Section title="Contacts">
           <Filter value={this.state.filter} onChange={this.handleChange} />
-          {visibleContacts.map(({ id, name, number }) => (
-            <ul>
-              <li>
-                {' '}
-                <span>
-                  {name}: {number}
-                </span>
-                <button type="button" onClick={() => this.deleteContact(id)}>
-                  X
-                </button>
-              </li>
-            </ul>
-          ))}
+
+          <ContactList
+            contacts={visibleContacts}
+            onDeleteContact={this.deleteContact}
+          />
         </Section>
       </>
     );
